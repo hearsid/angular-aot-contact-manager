@@ -7,17 +7,31 @@ import { AppComponent } from './app.component';
 
 import { HttpCacheService } from './http-cache.service';
 import {CacheService, CacheStorageAbstract, CacheLocalStorage} from 'ng2-cache/ng2-cache';
+import { HeaderComponent } from './header/header.component';
+import { ContactComponent } from './contact/contact.component';
+import { ContactsListComponent } from './contacts-list/contacts-list.component';
+import { NewContactComponent } from './new-contact/new-contact.component';
+import {AppRoutingModule} from "./app.routing.module";
+import {ContactService} from "./contact/contact.service";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    ContactComponent,
+    ContactsListComponent,
+    NewContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'angular-aot-contact-manager'}),
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [ HttpCacheService,     CacheService,
+  providers: [
+    ContactService,
+    HttpCacheService,
+    CacheService,
         {provide: CacheStorageAbstract, useClass:CacheLocalStorage}
     ],
   bootstrap: [AppComponent],
