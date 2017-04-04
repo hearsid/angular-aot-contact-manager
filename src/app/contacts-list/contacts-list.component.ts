@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {Subscription } from 'rxjs';
 import 'rxjs/Rx';
@@ -9,7 +9,7 @@ import { ContactService } from '../contact/contact.service';
 @Component({
 selector: 'app-contacts-list',
 templateUrl: './contacts-list.component.html',
-styleUrls: ['./contacts-list.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class ContactsListComponent implements OnInit, OnDestroy{
 

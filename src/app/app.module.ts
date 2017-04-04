@@ -10,7 +10,7 @@ import {CacheService, CacheStorageAbstract, CacheLocalStorage} from 'ng2-cache/n
 import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
-import { NewContactComponent } from './new-contact/new-contact.component';
+import { NewContactsComponent } from './new-contact/new-contact.component';
 import {AppRoutingModule} from "./app.routing.module";
 import {ContactService} from "./contact/contact.service";
 
@@ -20,7 +20,7 @@ import {ContactService} from "./contact/contact.service";
     HeaderComponent,
     ContactComponent,
     ContactsListComponent,
-    NewContactComponent
+    NewContactsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'angular-aot-contact-manager'}),

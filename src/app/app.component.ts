@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {HttpCacheService } from './http-cache.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   title = 'app works';
@@ -15,10 +15,10 @@ export class AppComponent {
   }
 
   ngOnInit() {
-      this.httpCacheService.get('http://localhost:4000/getContacts')
+    /*  this.httpCacheService.get('http://localhost:4000/getContacts')
         .subscribe((data) => {
             console.log(data);
             this.title = JSON.stringify(data);
-        })
+        })*/
   }
 }
