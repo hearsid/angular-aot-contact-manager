@@ -7,12 +7,5 @@ export interface IContact {
 
 }
 
-export class Contact implements IContact {
-  name:string;
-  tel:string;
-  email:string;
-  imageId:number;
-  id:number;
-  constructor() {}
-}
+
 

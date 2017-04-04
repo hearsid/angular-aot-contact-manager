@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
-import { IContact, Contact } from '../models/contact.model';
+import { IContact } from '../models/contact.model';
+import { Contact } from '../models/contact.class';
+
 import { ContactService } from '../contact/contact.service';
 @Component({
   selector: 'app-new-contact',
