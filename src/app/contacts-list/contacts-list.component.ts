@@ -28,7 +28,9 @@ export class ContactsListComponent implements OnInit, OnDestroy{
     // subscribe to router event
                       this.subscription = this.route.queryParams.subscribe(
                         (param: Params) => {
+                          console.log(param);
                           let total_contacts = +param['no_of_contacts']; // toInt
+                          console.log(total_contacts);
                           this.total_contacts = Number(total_contacts);
                           this.getContacts(this.total_contacts);
                           console.log(this.total_contacts);
@@ -46,6 +48,7 @@ export class ContactsListComponent implements OnInit, OnDestroy{
       .subscribe(
         contacts => {
         this.contactService.contacts = contacts ;
+          console.log(contacts);
         this.contacts = contacts;
         },
         error => console.error('Error: ' + error),

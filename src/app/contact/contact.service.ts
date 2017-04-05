@@ -40,7 +40,7 @@ export class ContactService {
     }
 
     getContactList(noOfContacts: number):Observable<IContact[]> {
-    var url = '/getContacts?no_of_contacts='+noOfContacts;
+    var url = 'http://localhost:4000/getContacts?no_of_contacts='+noOfContacts;
   //  return this.http.get(url)
   //    .map(response => response.json());
 

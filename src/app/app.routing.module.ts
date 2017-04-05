@@ -8,7 +8,7 @@ import {NewContactsComponent} from "./new-contact/new-contact.component";
     RouterModule.forRoot([
       { path: '', redirectTo: '/contacts', pathMatch: 'full' },
       { path: 'contacts', component: ContactsListComponent,  pathMatch: 'full' },
-      { path: 'newContact', component: NewContactsComponent,  pathMatch: 'full' }
+      { path: 'contact', loadChildren: './new-contact/new-contact.module#NewContactModule'}
     ])
   ],
   exports: [
