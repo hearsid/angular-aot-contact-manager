@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { NewContactsComponent } from './newContact.component';
+import { NewContactsComponent } from './new-contact.component';
 
 @NgModule({
   imports: [

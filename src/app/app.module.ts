@@ -13,6 +13,7 @@ import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { NewContactsComponent } from './new-contact/new-contact.component';
 import {AppRoutingModule} from "./app.routing.module";
 import {ContactService} from "./contact/contact.service";
+import {NewContactModule} from "./new-contact/new-contact.module";
 
 @NgModule({
   declarations: [
@@ -20,13 +21,13 @@ import {ContactService} from "./contact/contact.service";
     HeaderComponent,
     ContactComponent,
     ContactsListComponent,
-    NewContactsComponent
   ],
   imports: [
     BrowserModule.withServerTransition({appId: 'angular-aot-contact-manager'}),
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NewContactModule
   ],
   providers: [
     ContactService,
