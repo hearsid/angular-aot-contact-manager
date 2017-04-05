@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -17,7 +17,7 @@ import {NewContactRoutingModule} from "./new-contact-routing.module";
     NewContactsComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'angular-aot-contact-manager'}),
+CommonModule,
     FormsModule,
     HttpModule,
     NewContactRoutingModule,

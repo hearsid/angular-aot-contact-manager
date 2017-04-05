@@ -32,7 +32,15 @@ export class ContactsListComponent implements OnInit, OnDestroy{
                           let total_contacts = +param['no_of_contacts']; // toInt
                           console.log(total_contacts);
                           this.total_contacts = Number(total_contacts);
+                          if(!this.total_contacts) {
+                            this.total_contacts = this.contactService.noOfContacts
+                          }
+                          else {
+                            this.contactService.noOfContacts = total_contacts;
+                          }
                           this.getContacts(this.total_contacts);
+
+                          // store the contact number in the service for later use
                           console.log(this.total_contacts);
                         });
   }
@@ -68,6 +76,6 @@ export class ContactsListComponent implements OnInit, OnDestroy{
     addContact(): void {
       // set active component to null to determine edit/add
       // this.contactService.activeContact = new IContact() ;
-      this.router.navigate(['/newContact']);
+      this.router.navigate(['/contact/add']);
     }
 }

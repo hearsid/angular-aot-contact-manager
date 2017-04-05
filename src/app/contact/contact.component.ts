@@ -23,7 +23,7 @@ export class ContactComponent implements OnInit {
 
     edit(): void {
       this.contactService.activeContact = this.contact ;
-      this.router.navigate(['/newContact', this.contact.id]);
+      this.router.navigate(['/contact/edit', this.contact.id]);
     }
 
     removeContact(index: number) : void {
