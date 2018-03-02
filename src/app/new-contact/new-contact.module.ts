@@ -9,7 +9,7 @@ import {CacheService, CacheStorageAbstract, CacheLocalStorage} from 'ng2-cache/n
 
 import { NewContactsComponent } from './new-contact.component';
 
-import {NewContactRoutingModule} from "./new-contact-routing.module";
+import {NewContactRoutingModule} from './new-contact-routing.module';
 
 
 @NgModule({
@@ -27,7 +27,7 @@ CommonModule,
     ContactService,
     HttpCacheService,
     CacheService,
-    {provide: CacheStorageAbstract, useClass:CacheLocalStorage}
+    {provide: CacheStorageAbstract, useClass: CacheLocalStorage}
   ]
 })
 export class NewContactModule { }

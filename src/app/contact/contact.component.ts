@@ -4,7 +4,7 @@ import {IContact} from "../models/contact.model";
 import {ContactService} from "./contact.service";
 
 @Component({
-    selector: 'contact',
+    selector: 'app-contact-component',
     templateUrl: './contact.component.html'
 
 })
@@ -26,7 +26,7 @@ export class ContactComponent implements OnInit {
       this.router.navigate(['/contact/edit', this.contact.id]);
     }
 
-    removeContact(index: number) : void {
+    removeContact(index: number): void {
       this.delete.emit(index);
     }
 

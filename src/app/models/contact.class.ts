@@ -1,10 +1,10 @@
 
-import {IContact} from "./contact.model";
+import {IContact} from './contact.model';
 export class Contact implements IContact {
-  name:string;
-  tel:string;
-  email:string;
-  imageId:number;
-  id:number;
+  name: string;
+  tel: string;
+  email: string;
+  imageId: number;
+  id: number;
   constructor() {}
 }

@@ -43,7 +43,7 @@ export class NewContactsComponent implements OnInit {
   /**
    * @description Add the new contact to the
    **/
-  add(contact: IContact) : void {
+  add(contact: IContact): void {
     this.contactService.addNewContact(contact);
     this.router.navigate(['/contacts']);
 

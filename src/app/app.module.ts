@@ -11,9 +11,9 @@ import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { NewContactsComponent } from './new-contact/new-contact.component';
-import {AppRoutingModule} from "./app.routing.module";
-import {ContactService} from "./contact/contact.service";
-import {NewContactModule} from "./new-contact/new-contact.module";
+import {AppRoutingModule} from './app.routing.module';
+import {ContactService} from './contact/contact.service';
+import {NewContactModule} from './new-contact/new-contact.module';
 
 @NgModule({
   declarations: [

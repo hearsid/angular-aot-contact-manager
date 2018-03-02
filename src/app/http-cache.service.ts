@@ -1,6 +1,6 @@
 import { Http, Response, RequestOptionsArgs } from '@angular/http';
 import {CacheService, CacheStoragesEnum} from 'ng2-cache/ng2-cache';
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class HttpCacheService {
         // You want to return the cache if there is a response in it.
         // This would cache the first response so if your API isn't idempotent you probably want to
         // remove the item from the cache after you use it. LRU of 1
-        let key = url;
+        const key = url;
 
         if (this._cache.exists(key)) {
 

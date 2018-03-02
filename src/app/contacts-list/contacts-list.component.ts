@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import {Subscription } from 'rxjs';
+import {Subscription } from 'rxjs/Rx';
 import 'rxjs/Rx';
 import 'rxjs/add/operator/switchMap';
 
@@ -17,7 +17,7 @@ export class ContactsListComponent implements OnInit, OnDestroy{
     contacts: IContact[];
     selectedContact: IContact;
     private subscription: Subscription;
-    private total_contacts : number;
+    private total_contacts: number;
 
     constructor(private router: Router,
                 private contactService: ContactService,
@@ -29,13 +29,12 @@ export class ContactsListComponent implements OnInit, OnDestroy{
                       this.subscription = this.route.queryParams.subscribe(
                         (param: Params) => {
                           console.log(param);
-                          let total_contacts = +param['no_of_contacts']; // toInt
+                          const total_contacts = +param['no_of_contacts']; // toInt
                           console.log(total_contacts);
                           this.total_contacts = Number(total_contacts);
-                          if(!this.total_contacts) {
+                          if ( !this.total_contacts) {
                             this.total_contacts = this.contactService.noOfContacts
-                          }
-                          else {
+                          } else {
                             this.contactService.noOfContacts = total_contacts;
                           }
                           this.getContacts(this.total_contacts);

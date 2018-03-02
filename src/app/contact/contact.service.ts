@@ -4,7 +4,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import {Subscription } from 'rxjs';
+import {Subscription } from 'rxjs/Rx';
 import { HttpCacheService } from '../http-cache.service';
 
 import { IContact } from '../models/contact.model';
@@ -14,7 +14,7 @@ import { CONTACTS } from './mock-contacts';
 export class ContactService {
     contacts: IContact[];
     noOfContacts: number;
-    private _activeContact : IContact;
+    private _activeContact: IContact;
 
     constructor (private http: Http,
                  private route: ActivatedRoute,
@@ -26,22 +26,22 @@ export class ContactService {
 
     getContacts(): Promise<IContact[]> {
     // if we already have the contacts don't make the api call
-    if(this.contacts) {
+    if ( this.contacts) {
       return Promise.resolve(this.contacts);
     }
 
-    var promise = new Promise(function(resolve, reject) {
+    const promise = new Promise<IContact[]>(function(resolve, reject) {
           this.contacts = CONTACTS;
         //  resolve(CONTACTS);
 
 
-    }.bind(this));
+           }.bind(this));
         return promise;
     }
 
-    getContactList(noOfContacts: number):Observable<IContact[]> {
-      let numberOfContacts = noOfContacts || "";
-    var url = 'http://localhost:4000/getContacts?no_of_contacts='+ numberOfContacts;
+    getContactList(noOfContacts: number): Observable<IContact[]> {
+      const numberOfContacts = noOfContacts || '';
+    const url = 'http://localhost:4000/getContacts?no_of_contacts=' + numberOfContacts;
   //  return this.http.get(url)
   //    .map(response => response.json());
 
@@ -49,7 +49,7 @@ export class ContactService {
       }
 
     private extractData(res: Response) {
-    let body = res.json();
+    const body = res.json();
     return body.data || { };
   }
 
@@ -67,16 +67,16 @@ export class ContactService {
     return Observable.throw(errMsg);
   }
 
-    addNewContact(contact: IContact) : void {
+    addNewContact(contact: IContact): void {
       // append one of the six image in the added contact
-      var randomNumber = Math.floor(Math.random() * 6) + 1 ;
+      const randomNumber = Math.floor(Math.random() * 6) + 1 ;
       contact.imageId = randomNumber;
       this.contacts.push(contact);
     }
 
-    editContact(contact: IContact) : void {
+    editContact(contact: IContact): void {
        this.contacts = this.contacts.map(function(obj) {
-           if(obj.id == contact.id) {
+           if (obj.id === contact.id) {
                return contact;
            }
 
