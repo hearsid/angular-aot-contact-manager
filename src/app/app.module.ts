@@ -1,12 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, PLATFORM_ID, APP_ID, Inject  } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 
-import { HttpCacheService } from './http-cache.service';
-import {CacheService, CacheStorageAbstract, CacheLocalStorage} from 'ng2-cache/ng2-cache';
 import { HeaderComponent } from './header/header.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
@@ -30,11 +29,17 @@ import {NewContactModule} from './new-contact/new-contact.module';
     NewContactModule
   ],
   providers: [
-    ContactService,
-    HttpCacheService,
-    CacheService,
-        {provide: CacheStorageAbstract, useClass:CacheLocalStorage}
-    ],
-  bootstrap: [AppComponent],
+    ContactService
+  ],
+  bootstrap: [AppComponent]
+
 })
-export class AppModule { }
+export class AppModule {
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(APP_ID) private appId: string) {
+    const platform = isPlatformBrowser(platformId) ?
+      'in the browser' : 'on the server';
+    console.log(`Running ${platform} with appId=${appId}`);
+  }
+}

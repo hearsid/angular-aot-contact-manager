@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import {IContact} from "../models/contact.model";
-import {ContactService} from "./contact.service";
+import {IContact} from '../models/contact.model';
+import {ContactService} from './contact.service';
 
 @Component({
     selector: 'app-contact-component',

@@ -1,20 +1,22 @@
+import {AppRoutingModule} from './app.routing.module';
 import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
+import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
+
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { HttpCacheService } from './http-cache.service';
-import {CacheService, CacheStorageAbstract, CacheLocalStorage} from 'ng2-cache/ng2-cache';
-import {AppRoutingModule} from './app.routing.module';
 
 @NgModule({
   imports: [
-    ServerModule,
     AppModule,
+    ServerModule,
+    ModuleMapLoaderModule,
     AppRoutingModule
+
   ],
-  providers: [HttpCacheService,     CacheService,
-        {provide: CacheStorageAbstract, useClass: CacheLocalStorage}
-   ],
-  bootstrap: [AppComponent]
+  providers: [
+    // Add universal-only providers here
+  ],
+  bootstrap: [ AppComponent ],
 })
-export class AppServerModule { }
+export class AppServerModule {}

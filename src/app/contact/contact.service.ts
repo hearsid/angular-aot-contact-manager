@@ -5,7 +5,6 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Subscription } from 'rxjs/Rx';
-import { HttpCacheService } from '../http-cache.service';
 
 import { IContact } from '../models/contact.model';
 import { CONTACTS } from './mock-contacts';
@@ -17,8 +16,7 @@ export class ContactService {
     private _activeContact: IContact;
 
     constructor (private http: Http,
-                 private route: ActivatedRoute,
-                 private httpCacheService: HttpCacheService) {
+                 private route: ActivatedRoute) {
 
                  }
 
@@ -39,13 +37,12 @@ export class ContactService {
         return promise;
     }
 
-    getContactList(noOfContacts: number): Observable<IContact[]> {
+    getContactList(noOfContacts: number): Observable<any> {
       const numberOfContacts = noOfContacts || '';
     const url = 'http://localhost:4000/getContacts?no_of_contacts=' + numberOfContacts;
   //  return this.http.get(url)
   //    .map(response => response.json());
-
-        return this.httpCacheService.get(url);
+        return this.http.get(url);
       }
 
     private extractData(res: Response) {

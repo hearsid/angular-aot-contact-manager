@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { ContactService } from '../contact/contact.service'
-import { HttpCacheService } from '../http-cache.service';
-import {CacheService, CacheStorageAbstract, CacheLocalStorage} from 'ng2-cache/ng2-cache';
 
 import { NewContactsComponent } from './new-contact.component';
 
@@ -24,10 +22,7 @@ CommonModule,
 
   ],
   providers: [
-    ContactService,
-    HttpCacheService,
-    CacheService,
-    {provide: CacheStorageAbstract, useClass: CacheLocalStorage}
+    ContactService
   ]
 })
 export class NewContactModule { }
