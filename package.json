@@ -4,13 +4,20 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "serve": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
+    "start": "ng serve",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e",
-    "prestart": "ng build --prod && ngc",
-    "start": "ts-node src/server.ts"
+    "start:fr": "ng serve --aot --i18nFile=src/locale/messages.fr.xlf --i18nFormat=xlf --locale=fr",
+    "build:fr": "ng build --prod --i18nFile=src/locale/messages.fr.xlf --i18nFormat=xlf --locale=fr",
+    "extract": "ng xi18n --outputPath=src/locale",
+    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+    "serve:ssr": "node dist/server.js",
+    "build:universal": "npm run build:client-and-server-bundles && npm run webpack:server",
+    "serve:universal": "node dist/server.js",
+    "build:client-and-server-bundles": "ng build --prod && ng build --prod --app 1 --output-hashing=false",
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
   },
   "private": false,
   "dependencies": {
@@ -48,7 +55,7 @@
     "protractor": "~5.3.0",
     "ts-node": "^5.0.0",
     "tslint": "~5.9.1",
-    "typescript": "~2.7.2"
+    "typescript": "^2.6.2"
   },
   "main": "index.js",
   "repository": "git@github.com:hearsid/angular-aot-contact-manager.git",
