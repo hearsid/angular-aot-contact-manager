@@ -5,7 +5,7 @@
 <ul class="media-list row contacts-container">
     <li *ngFor="let contact of contacts;let i = index" class="my-repeat-animation contacts media col-md-6 col-lg-4">
         {{i+1}}
-        <contact [contact]="contact" [index]="i" (delete)="delete($event)"></contact>
+        <app-contact-component [contact]="contact" [index]="i" (delete)="delete($event)"></app-contact-component>
 
     </li>
 </ul>

@@ -11,7 +11,7 @@ selector: 'app-contacts-list',
 templateUrl: './contacts-list.component.html',
   encapsulation: ViewEncapsulation.None
 })
-export class ContactsListComponent implements OnInit, OnDestroy{
+export class ContactsListComponent implements OnInit, OnDestroy {
 
     title = 'List of contacts';
     contacts: IContact[];
